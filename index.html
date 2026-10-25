@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Simulado TTI – Piloto</title>
+<title>Simulado TTI IBREP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
@@ -66,13 +66,21 @@ footer{max-width:760px;margin:0 auto;padding:8px 16px 28px;color:var(--muted);fo
 </style>
 </head>
 <body>
-<header class="top"><div><h1>Simulado TTI · Técnico em Transações Imobiliárias</h1><span>Piloto · 5 questões</span></div></header>
+<header class="top"><div><h1>Simulado TTI · Técnico em Transações Imobiliárias</h1><span id="sub"></span></div></header>
 <main>
   <section id="start" class="card">
     <h2>Simulado de preparação para a avaliação final</h2>
     <p class="muted">Questões de múltipla escolha baseadas na apostila TTI+. Você pode pedir uma <b>dica</b> e <b>verificar</b> a resposta de cada questão; a explicação indica onde revisar na apostila.</p>
+    <label class="f" for="niv">Simulado</label>
+    <select id="niv">
+      <option value="1">Padrão — cobertura de todos os temas</option>
+      <option value="2">Desafio — mais difícil, menos questões (estudo "puxado")</option>
+    </select>
     <label class="f" for="mod">Módulo</label>
     <select id="mod"></select>
+    <label class="f" for="qtd">Quantidade de questões</label>
+    <select id="qtd"></select>
+    <p class="muted" id="info"></p>
     <div class="row"><button class="b" id="go">Iniciar</button></div>
   </section>
 
@@ -108,70 +116,58 @@ footer{max-width:760px;margin:0 auto;padding:8px 16px 28px;color:var(--muted);fo
 <footer>Material de estudo não oficial, elaborado a partir da apostila do curso. Não substitui a prova nem a legislação vigente. Meta de aprovação usada na tela de resultado: 70%.</footer>
 
 <script>
-/* Banco de questões. c = índice (0..3) da alternativa correta; f = fonte na apostila TTI+ (nº da página do PDF). */
-const BANCO=[
- {id:"MER-PRO-01",m:"Mercado",d:"Conhecendo a profissão",
-  q:"Segundo a apostila, qual é a diferença, na prática, entre o intermediador e o corretor de imóveis?",
-  o:["O intermediador acompanha todo o processo até a transferência do bem; o corretor apenas aproxima as partes.",
-     "O intermediador apenas liga as partes interessadas; o corretor acompanha o processo até o fim, inclusive certidões, contrato e transferência.",
-     "Perante a lei são figuras distintas, mas na prática são sinônimos.",
-     "O corretor atua apenas antes da venda, com estudo e análise de mercado."],
-  c:1,
-  h:"Perante a lei os termos são sinônimos; a diferença aparece na prática. Pense em quem 'acompanha até o final'.",
-  e:"O intermediador faz a ligação entre as partes e não acompanha o processo até o fim. O corretor realiza os processos da operação e acompanha até a conclusão (contrato, certidões, transferência do bem). A alternativa 4 descreve o consultor imobiliário, que atua mais no momento prévio à venda.",
-  f:"Módulo Mercado · Conhecendo a profissão, 1.2 (p. 5)"},
- {id:"TEC-DIR-01",m:"Técnico",d:"Direito imobiliário",
-  q:"Sobre aval e fiança, está correto afirmar que:",
-  o:["O aval garante o negócio e a fiança garante títulos de crédito.",
-     "O aval garante títulos de crédito (cheque, nota promissória, duplicata) e a fiança garante o negócio; a compra e venda de imóvel não é título de crédito.",
-     "O aval e a fiança são sinônimos e valem para qualquer contrato.",
-     "A fiança serve para garantir cheque e duplicata, e o aval serve para garantir contratos de locação."],
-  c:1,
-  h:"Lembre dos exemplos de 'título de crédito'. Compra e venda de imóvel entra nessa lista?",
-  e:"Aval é para garantir título de crédito (cheque, nota promissória, duplicata). Fiança é para garantir o negócio, como a locação. Compra e venda de imóvel não é título de crédito. Observação da apostila: fiança também é um dos atos que exigem anuência do cônjuge.",
-  f:"Módulo Técnico · Direito imobiliário, 3.1 (p. 89)"},
- {id:"TEC-DIR-02",m:"Técnico",d:"Direito imobiliário",
-  q:"O proprietário de um imóvel se divorciou e precisa que a matrícula reflita o novo estado civil. Qual ato deve ser feito na matrícula?",
-  o:["Registro, porque o divórcio transfere a propriedade para um terceiro.",
-     "Averbação, porque é uma alteração que precisa ser acrescentada ao registro existente.",
-     "Nenhum ato, pois o estado civil não interessa à matrícula.",
-     "Novo registro de compra e venda entre os ex-cônjuges."],
-  c:1,
-  h:"Um dos atos é a transferência de propriedade; o outro é uma alteração que se acrescenta ao que já existe.",
-  e:"Registro é a transferência de propriedade (ex.: compra e venda). Averbação são as alterações no registro que precisam ser adicionadas; o exemplo dado na apostila é justamente o divórcio. A matrícula guarda todo o histórico do imóvel, e cabe ao corretor pedi-la e verificar a situação legal.",
-  f:"Módulo Técnico · Direito imobiliário, 3.4 (p. 91)"},
- {id:"NUM-MAT-01",m:"Números",d:"Matemática descomplicada",
-  q:"Um operário receberá um aumento de 5% e passará a ganhar R$ 2.100,00. Qual era o salário antes do aumento?",
-  o:["R$ 1.995,00","R$ 2.000,00","R$ 2.205,00","R$ 1.890,00"],
-  c:1,
-  h:"Os R$ 2.100,00 já incluem os 5%. O salário antigo é a referência de 100%; então 2.100 corresponde a 105%.",
-  e:"Salário antigo = 100%; com o aumento passa a 105%. Logo: 2.100 ÷ 1,05 = 2.000. O erro mais comum é tirar 5% de 2.100 (resultado 1.995), pois os 5% incidem sobre o salário antigo, não sobre o novo.",
-  f:"Módulo Números · Matemática descomplicada, 3.6 (p. 214)"},
- {id:"PES-POS-01",m:"Pessoas",d:"Pós-venda gera venda",
-  q:"De acordo com a apostila, quando o pós-venda deve começar?",
-  o:["Somente depois que o cliente assina o contrato.",
-     "Somente se o cliente fizer alguma reclamação após a compra.",
-     "Já na jornada de compra, desde que o cliente começa a pensar em adquirir um imóvel, e ganha uma etapa efetiva depois da venda.",
-     "Apenas quando o cliente é indicado por outro cliente."],
-  c:2,
-  h:"A apostila diz que não é um 'fato isolado': ele faz parte da jornada de compra.",
-  e:"O pós-venda deve ser construído de forma humana e fazer parte da jornada de compra desde o início. Após a venda efetivada, o corretor não encerra o contato: é ali que o pós-venda começa efetivamente (soluções para o dia a dia, indicação de profissionais, orientação sobre transferência das contas). Isso aumenta as chances de indicações e recorrência.",
-  f:"Módulo Pessoas · Pós-venda gera venda, 5.1 (p. 183–184)"}
-];
+window.BANCO=[];
+/* Atalho de autoria: a 1ª alternativa de o[] é sempre a correta (a ordem é embaralhada na prova). n: 1 padrão, 2 desafio */
+window.Q=(id,m,d,n,q,o,h,e,f)=>BANCO.push({id,m,d,n,q,o,c:0,h,e,f});
+</script>
+<script src="banco/00_piloto.js"></script>
+<script src="banco/01_mercado.js"></script>
+<script src="banco/02_tecnico_construcao.js"></script>
+<script src="banco/03_tecnico_direito.js"></script>
+<script src="banco/04_tecnico_documentacao.js"></script>
+<script src="banco/05_pessoas_marketing.js"></script>
+<script src="banco/06_pessoas_psicologia.js"></script>
+<script src="banco/07_numeros.js"></script>
+<script src="banco/08_estagio.js"></script>
+<script src="banco/09_avi_intro.js"></script>
+<script src="banco/10_avi_metodos.js"></script>
+<script src="banco/10b_avi_ptam_judicial.js"></script>
+<script src="banco/10c_avi_pratica.js"></script>
+<script src="banco/11_desafio_mercado.js"></script>
+<script src="banco/13_desafio_pessoas.js"></script>
+<script src="banco/14_desafio_numeros.js"></script>
+<script src="banco/15_desafio_avi.js"></script>
+<script src="banco/12_desafio_tecnico.js"></script>
+<script>
+/* Banco em banco/*.js; n=1 padrão, n=2 desafio. c = índice (0..3) da alternativa correta; f = fonte na apostila TTI+ (nº da página do PDF). */
+/* O banco fica em banco/*.js; cada questão: n=1 (padrão) ou n=2 (desafio). */
 
 const $=id=>document.getElementById(id);
 const L=["A","B","C","D","E"];
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 let S=null;
 
+const poolOf=()=>{const n=+$("niv").value,f=$("mod").value;return BANCO.filter(q=>(q.n||1)===n&&(f==="Todos os módulos"||q.m===f))};
+function refreshQtd(){
+  const tot=poolOf().length,opts=[];
+  [20,40,60].forEach(v=>{if(v<tot)opts.push([v,`${v} questões (sorteadas)`])});
+  opts.push([tot,`Todas (${tot})`]);
+  $("qtd").innerHTML=opts.map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+  $("qtd").value=String(opts.length>1&&tot>40?40:tot);
+  $("info").textContent=tot?"":"Nenhuma questão disponível nesta combinação ainda.";
+  $("go").disabled=!tot;
+}
 function init(){
-  const mods=["Todos os módulos",...new Set(BANCO.map(q=>q.m))];
+  const ord=["Mercado","Técnico","Pessoas","Números","Estágio","Avaliação (AVI)"];
+  const mods=["Todos os módulos",...ord.filter(m=>BANCO.some(q=>q.m===m))];
+  const np=BANCO.filter(q=>(q.n||1)===1).length,nd=BANCO.length-np;
+  $("sub").textContent=`${np} questões padrão · ${nd} desafio`;
   $("mod").innerHTML=mods.map(m=>`<option>${m}</option>`).join("");
+  $("niv").onchange=refreshQtd;$("mod").onchange=refreshQtd;refreshQtd();
 }
 function start(){
-  const f=$("mod").value;
-  const pool=BANCO.filter(q=>f==="Todos os módulos"||q.m===f);
-  S={qs:shuffle(pool).map(q=>{const ord=shuffle(q.o.map((_,i)=>i));return {...q,ord}}),i:0,ans:[],sel:null,done:false,hint:false};
+  const pool=poolOf().slice();
+  S={qs:shuffle(pool).slice(0,+$("qtd").value).map(q=>{const ord=shuffle(q.o.map((_,i)=>i));return {...q,ord}}),i:0,ans:[],sel:null,done:false,hint:false};
   $("start").classList.add("hide");$("result").classList.add("hide");$("quiz").classList.remove("hide");
   render();
 }

@@ -28,7 +28,8 @@ Recomendação: **banco de 160 questões** (120 TTI+ + 40 AVI), prova simulada d
 | AVI | PTAM (estrutura, vistoria, áreas, honorários) | 16 | 6 | Alta |
 | AVI | Avaliações judiciais | 17 | 4 | Média |
 | AVI | Avaliações na prática (urbanos, rurais, estatística) | 59 | 10 | Média |
-| | **Total** | | **160** | |
+| | **Total padrão** | | **160** | |
+| | **Simulado Desafio (adicional)** | | **44** | (Mercado 10, Técnico 12, Pessoas 6, Números 7, AVI 9) |
 
 Apostila Digital AVI (161 págs.) incluída por decisão do usuário em 2026-10-25, como módulo próprio.
 Observação: a apostila tem imprecisões pontuais (ex.: número de leis/decretos); conferir antes de virar gabarito.

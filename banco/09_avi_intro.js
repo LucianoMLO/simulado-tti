@@ -1,0 +1,67 @@
+/* Apostila Digital AVI — Módulo 1: Introdução à avaliação de imóveis (simulado padrão, n=1, 8 questões). A 1ª alternativa é a correta.
+   Fonte: Apostila Digital AVI (págs. do PDF). */
+const A1="Avaliação (AVI)";
+
+Q("AVI-INT-01",A1,"Introdução à avaliação",1,
+ "Segundo a apostila AVI, qual lei é apontada como marco do surgimento da Engenharia de Avaliações no Brasil, por ter extinto o sistema de concessão de terras e reconhecido a propriedade particular?",
+ ["Lei de Terras (Lei nº 601, de 1850).","Lei 6.530/78.","Lei 4.591/64.","Lei do Inquilinato (8.245/91)."],
+ "É uma lei do Império, que proibiu a aquisição de terras devolutas por outro título que não a compra.",
+ "A Lei de Terras (1850) exigiu a compra como forma de aquisição de terras devolutas e extinguiu o sistema de concessões (sesmarias), reconhecendo a propriedade particular. A apostila liga a isso o início da Engenharia de Avaliações. Marcos posteriores: IBAPE (1957) e a obra 'Avaliação de Imóveis', de Berrini (1949).",
+ "AVI · Módulo 1, Unidades 1 e 2 (p. 3–7)");
+Q("AVI-INT-02",A1,"Introdução à avaliação",1,
+ "Qual norma da ABNT é a referência técnica que os profissionais de perícias e avaliações devem observar?",
+ ["ABNT NBR 14.653 e suas partes derivadas.","ABNT NBR 12.721 apenas.","ABNT NBR 9.050, exclusivamente.","Nenhuma: não há norma técnica para avaliações."],
+ "É uma série numerada de -1 a -7.",
+ "Os profissionais de perícias e avaliações devem atender, com rigor técnico, às normas e procedimentos da ABNT NBR 14.653 e derivadas. A NBR 9050 trata de acessibilidade; a NBR 15.575, de desempenho de edificações habitacionais; a NBR 12.721, de custos de construção para incorporação.",
+ "AVI · Módulo 1, Unidade 2 e 9 (p. 7 e 23–24)");
+Q("AVI-INT-03",A1,"Introdução à avaliação",1,
+ "Na apostila, qual a diferença entre os campos de 'valoração' e 'decisão' do perito avaliador?",
+ ["Valoração é atribuir valor a bens (terrenos, edificações, recursos naturais, indenizações); decisão é analisar a viabilidade econômica e financeira de projetos ou transações.",
+  "Valoração é analisar a viabilidade de investimentos; decisão é atribuir valor de mercado aos bens.",
+  "As duas são sinônimas e se resumem a calcular o IPTU.",
+  "Valoração é a nomeação pelo juiz; decisão é a sentença."],
+ "Uma lida com o 'valor justo de mercado'; a outra, com a Teoria da Decisão.",
+ "Valoração: o perito atribui valor a bens, considerando localização, estado de conservação, demanda etc. Decisão: analisa se um empreendimento ou transação é viável (solvência, segurança das partes), por exemplo em leilões e negociações contratuais, apoiado na Teoria da Decisão. Os bens podem ser tangíveis (terrenos, edifícios) ou intangíveis (marcas e patentes).",
+ "AVI · Módulo 1, Unidade 4 (p. 10–11)");
+Q("AVI-INT-04",A1,"Introdução à avaliação",1,
+ "A NBR 15.575 (desempenho de edificações habitacionais) NÃO se aplica a:",
+ ["Obras já concluídas, reformas e retrofits e edificações provisórias.",
+  "Edificações residenciais novas com projeto protocolado após a vigência.",
+  "Casas unifamiliares novas.",
+  "Edifícios multifamiliares novos."],
+ "A norma trata de desempenho: conforto, segurança, durabilidade, estabilidade, proteção contra incêndio.",
+ "A norma estabelece diretrizes de desempenho (conforto, segurança, acessibilidade, estabilidade estrutural, vida útil, proteção contra incêndios). Exceções do item 1.2 da Parte I: obras já concluídas, obras em andamento na entrada em vigor, projetos protocolados até essa data, reformas e retrofits e edificações provisórias. Além dela, vale o Código de Obras do município.",
+ "AVI · Módulo 1, Unidade 5 (p. 12–15)");
+Q("AVI-INT-05",A1,"Introdução à avaliação",1,
+ "Sobre o loteamento de acesso controlado (Lei 13.465/2017), segundo a apostila:",
+ ["É um loteamento regular em que o município permite controle de acesso, mas as vias e praças continuam públicas, e é preciso permitir a entrada de não residentes mediante identificação.",
+  "É o mesmo que condomínio de lotes, com vias privadas dos condôminos.",
+  "Dispensa aprovação do município.",
+  "Proíbe a entrada de qualquer não residente."],
+ "No condomínio de lotes as vias e áreas comuns são privadas; no loteamento de acesso controlado, públicas.",
+ "No condomínio de lotes (Lei 13.465/2017) há apenas lotes, e as vias e áreas comuns são de propriedade privada dos condôminos. No loteamento de acesso controlado, vias e praças são públicas, e a entrada de não residentes deve ser permitida mediante identificação. A Lei 9.785/99 deu mais autonomia aos municípios sobre percentuais de áreas e tamanho de lotes.",
+ "AVI · Módulo 1, Unidades 6 e 7 (p. 14–17)");
+Q("AVI-INT-06",A1,"Introdução à avaliação",1,
+ "Relacione a parte da NBR 14.653 ao objeto: a Parte 3 trata da avaliação de:",
+ ["Imóveis rurais.","Imóveis urbanos.","Máquinas, equipamentos e bens industriais.","Patrimônios históricos e artísticos."],
+ "A Parte 2 cuida dos urbanos; a 4, de empreendimentos.",
+ "Partes da NBR 14.653: 1 – procedimentos gerais; 2 – imóveis urbanos; 3 – imóveis rurais; 4 – empreendimentos; 5 – máquinas, equipamentos, instalações e bens industriais; 6 – recursos naturais e ambientais; 7 – patrimônios históricos e artísticos. (A apostila contém uma imprecisão de numeração no texto da Parte 3; considere a numeração oficial.)",
+ "AVI · Módulo 1, Unidade 9 (p. 23–24)");
+Q("AVI-INT-07",A1,"Introdução à avaliação",1,
+ "Sobre o CNAI (Cadastro Nacional de Avaliadores Imobiliários) e a Resolução COFECI 1.066/2007, é correto afirmar que:",
+ ["A inscrição é opcional; exige diploma superior em gestão imobiliária ou certificado de curso de avaliação reconhecido; o certificado vale 3 anos; o selo certificador (QR Code) é afixado em cada PTAM.",
+  "A inscrição é obrigatória para qualquer corretor; o certificado é vitalício; o selo é facultativo.",
+  "Só engenheiros podem se inscrever.",
+  "O selo certificador é pago ao CRECI em qualquer hipótese e não é vinculado ao PTAM."],
+ "Alternativas com 'obrigatória', 'vitalício' ou 'só engenheiros' contradizem a resolução.",
+ "O CNAI é organizado pelo COFECI. A inscrição é opcional (o corretor não inscrito pode opinar quanto à comercialização, art. 3º da Lei 6.530/78), mas o PTAM (Resolução 957/2006) pressupõe curso de avaliação e registro no CNAI. O certificado tem validade de 3 anos e a renovação pode depender de nova prova. O selo é individual, sequencial, com QR Code, e hoje pode ser obtido gratuitamente na plataforma ao emitir a declaração digital.",
+ "AVI · Módulo 1, Unidades 10 e 15 (p. 23–38)");
+Q("AVI-INT-08",A1,"Introdução à avaliação",1,
+ "Qual é a diferença entre o avaliador de imóveis e o perito avaliador judicial, segundo a apostila?",
+ ["O avaliador atua para seu contratante sempre que emite parecer ou opinião de valor; o perito judicial é o profissional nomeado por um juiz para atuar nos autos.",
+  "O perito judicial é um cargo permanente, e o avaliador é sempre nomeado pelo juiz.",
+  "Não há diferença: ambos são nomeados pelo CRECI.",
+  "O avaliador só atua em processos criminais."],
+ "'Eu não sou perito judicial. Eu estou atuando como perito judicial quando nomeado pelo juiz.'",
+ "O avaliador é quem, com formação, emite parecer ou opinião de valor a um contratante; torna-se perito judicial quando nomeado por um juiz. Diversos tribunais mantêm cadastros eletrônicos de peritos (CPTEC). O corretor avaliador cumpre a Lei 6.530/78 e a Resolução 1.066/2007; o perito judicial, o art. 156 do CPC. O corretor avaliador tem responsabilidade civil pelo PTAM (CC art. 927).",
+ "AVI · Módulo 1, Unidades 12 e 13 (p. 28–32)");
