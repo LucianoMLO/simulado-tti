@@ -1,7 +1,7 @@
 # Plano do banco de questões — Simulado TTI
 
 Base: Apostila digitalTTI+ (241 págs., ~71,6 mil palavras) como guia; PPTs e apostila Mercado atualizada como complemento.
-Recomendação: **banco de 120 questões** (≈ 1 por 2 páginas), prova simulada de **40 sorteadas** proporcionalmente.
+Recomendação: **banco de 160 questões** (120 TTI+ + 40 AVI), prova simulada de **40 sorteadas** proporcionalmente.
 
 | Módulo | Disciplina | Págs. | Questões | Prioridade TTI |
 |---|---|---|---|---|
@@ -23,7 +23,12 @@ Recomendação: **banco de 120 questões** (≈ 1 por 2 páginas), prova simulad
 | Números | Economia e finanças | 10 | 6 | Média |
 | Números | Matemática (juros, SAC/Price, valorização) | 17 | 8 | Alta |
 | Estágio | Estágio obrigatório | 17 | 4 | Baixa |
-| | **Total** | | **120** | |
+| AVI | Introdução à avaliação (histórico, perito, normas, COFECI-CRECI) | 40 | 8 | Média |
+| AVI | Métodos avaliatórios (ABNT, comparativo direto, custo) | 28 | 12 | Alta |
+| AVI | PTAM (estrutura, vistoria, áreas, honorários) | 16 | 6 | Alta |
+| AVI | Avaliações judiciais | 17 | 4 | Média |
+| AVI | Avaliações na prática (urbanos, rurais, estatística) | 59 | 10 | Média |
+| | **Total** | | **160** | |
 
-Fora do escopo por padrão: Apostila Digital AVI (curso de avaliação, 161 págs.).
+Apostila Digital AVI (161 págs.) incluída por decisão do usuário em 2026-10-25, como módulo próprio.
 Observação: a apostila tem imprecisões pontuais (ex.: número de leis/decretos); conferir antes de virar gabarito.
