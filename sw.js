@@ -1,6 +1,6 @@
 /* Service worker: o app funciona offline depois do primeiro acesso.
    Estratégia: abre rápido pelo cache e atualiza em segundo plano (stale-while-revalidate). Troque VERSAO ao publicar mudanças grandes. */
-const VERSAO='tti-v2';
+const VERSAO='tti-v3';
 const ARQUIVOS=[
  './','index.html','app.css','app.js','manifest.webmanifest','icon-192.png','icon-512.png',
  'banco/00_temas.js','banco/00_piloto.js','banco/01_mercado.js','banco/02_tecnico_construcao.js','banco/03_tecnico_direito.js',

@@ -5,7 +5,7 @@
 - Testado: carregamento do banco (sem IDs duplicados, 4 alternativas em todas), fluxo completo do desafio (44/44) e filtros por simulado/módulo/quantidade.
 
 ## Pendências conhecidas
-1. **Viés de tamanho:** em ~79% das questões a alternativa correta é a mais longa (162/204). Rebalancear os distratores (alongar/encurtar) antes de usar como diagnóstico real.
+1. ~~Viés de tamanho~~ corrigido em 2026-10-25: a correta é a mais longa em 23% das questões (era 79%) e a mais curta em 6%. Distratores reescritos em ~120 questões; revisar o texto deles se algum parecer plausível demais.
 2. Revisão de conteúdo por quem conhece a prova: confirmar se o peso por tema reflete a avaliação final do IBREP.
 3. Imprecisões da apostila tratadas: M = C + J (juros simples) grafado como 5.400 (correto 5.540); "NBR 14.652-2"; numeração da NBR 14.653-3; Lei 9.631/98 (COAF); limite de 30 x 40 salários-mínimos (art. 108 CC).
 4. Estágio sem questões no desafio (4 no padrão).
