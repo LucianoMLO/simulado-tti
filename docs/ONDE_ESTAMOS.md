@@ -9,3 +9,9 @@
 2. Revisão de conteúdo por quem conhece a prova: confirmar se o peso por tema reflete a avaliação final do IBREP.
 3. Imprecisões da apostila tratadas: M = C + J (juros simples) grafado como 5.400 (correto 5.540); "NBR 14.652-2"; numeração da NBR 14.653-3; Lei 9.631/98 (COAF); limite de 30 x 40 salários-mínimos (art. 108 CC).
 4. Estágio sem questões no desafio (4 no padrão).
+
+## 2026-10-25 (2) — app de celular com plano de 5 dias
+- Reescrito como PWA: abas Hoje/Semana/Sumário/Resultados, roteiro diário, sumário por dia e por capítulo, resultados e sugestões acessíveis em qualquer tela (chip 📊), progresso em localStorage.
+- Dias: 1–3 básico (40 cada), 4 AVI (40), 5 desafio (44). Capítulos e dias em `banco/00_temas.js`.
+- Testado: carga do banco, distribuição por dia, fluxo dia → questões → resultados em viewport 375×812.
+- NÃO testado: service worker/offline (o navegador do painel bloqueia o registro) e instalação no celular real.

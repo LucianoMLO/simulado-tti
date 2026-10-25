@@ -2,124 +2,40 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1E2761">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Simulado TTI">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Simulado TTI IBREP</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#1E2761; --teal:#1D9E75; --amber:#BA7517; --red:#C0392B;
-  --bg:#ffffff; --surface:#f8fafc; --border:#e2e8f0; --text:#0f172a; --muted:#64748b;
-  --ok-bg:#e8f6f1; --err-bg:#fbeceb; --hint-bg:#fdf3e2; --accent:#1E2761; --on-accent:#fff;
-  --radius:10px; --font:'DM Sans',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
-}
-@media (prefers-color-scheme:dark){:root{
-  --bg:#0b1020; --surface:#121a33; --border:#24304f; --text:#e2e8f0; --muted:#94a3b8;
-  --ok-bg:#0f2a24; --err-bg:#301a1a; --hint-bg:#2b2412; --accent:#6f82e8; --on-accent:#0b1020;
-}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:14px/1.55 var(--font)}
-main{max-width:760px;margin:0 auto;padding:16px}
-header.top{background:var(--navy);color:#fff;padding:14px 16px}
-header.top div{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-header.top h1{font-size:17px;margin:0}
-header.top span{font-size:12px;opacity:.85}
-.card{border:.5px solid var(--border);border-radius:var(--radius);padding:1rem;background:var(--surface);margin:12px 0}
-h2{font-size:16px;margin:0 0 8px}
-.muted{color:var(--muted);font-size:12.5px}
-.bar{height:6px;background:var(--border);border-radius:99px;overflow:hidden;margin:6px 0 2px}
-.bar i{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
-.tag{display:inline-block;font-size:11.5px;border:.5px solid var(--border);border-radius:99px;padding:1px 9px;margin:0 4px 6px 0;background:var(--bg);color:var(--muted)}
-.q{font-size:15.5px;font-weight:500;margin:6px 0 12px}
-.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:inherit;color:inherit;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;margin:8px 0;cursor:pointer}
-.opt:hover:not(:disabled){border-color:var(--accent)}
-.opt .l{font-family:var(--mono);min-width:22px;height:22px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;font-size:12px;flex:none}
-.opt.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.opt.sel .l{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
-.opt.ok{background:var(--ok-bg);border-color:var(--teal)}
-.opt.err{background:var(--err-bg);border-color:var(--red)}
-.opt:disabled{cursor:default}
-.opt .mk{margin-left:auto;font-weight:700;white-space:nowrap}
-.opt.ok .mk{color:var(--teal)} .opt.err .mk{color:var(--red)}
-.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-button.b{font:inherit;font-weight:500;border-radius:var(--radius);padding:9px 16px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent)}
-button.b.sec{background:transparent;color:var(--accent)}
-button.b:disabled{opacity:.4;cursor:not-allowed}
-.box{border-radius:var(--radius);padding:10px 12px;margin-top:12px;border:.5px solid var(--border)}
-.box.hint{background:var(--hint-bg);border-color:var(--amber)}
-.box.ok{background:var(--ok-bg);border-color:var(--teal)}
-.box.err{background:var(--err-bg);border-color:var(--red)}
-.box b.t{display:block;margin-bottom:2px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
-.kpi{border:.5px solid var(--border);border-radius:var(--radius);padding:.8rem;background:var(--bg)}
-.kpi .n{font:500 24px var(--mono)}
-.sem{font-weight:700}
-.sem.g{color:var(--teal)} .sem.a{color:var(--amber)} .sem.r{color:var(--red)}
-table{width:100%;border-collapse:collapse;margin-top:6px}
-th,td{text-align:left;padding:6px 4px;border-bottom:.5px solid var(--border);font-size:13px}
-select{font:inherit;padding:7px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
-label.f{display:block;margin:10px 0 4px;font-weight:500}
-footer{max-width:760px;margin:0 auto;padding:8px 16px 28px;color:var(--muted);font-size:12px}
-.hide{display:none}
-@media print{header.top,.row,footer{display:none}}
-</style>
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
-<header class="top"><div><h1>Simulado TTI · Técnico em Transações Imobiliárias</h1><span id="sub"></span></div></header>
-<main>
-  <section id="start" class="card">
-    <h2>Simulado de preparação para a avaliação final</h2>
-    <p class="muted">Questões de múltipla escolha baseadas na apostila TTI+. Você pode pedir uma <b>dica</b> e <b>verificar</b> a resposta de cada questão; a explicação indica onde revisar na apostila.</p>
-    <label class="f" for="niv">Simulado</label>
-    <select id="niv">
-      <option value="1">Padrão — cobertura de todos os temas</option>
-      <option value="2">Desafio — mais difícil, menos questões (estudo "puxado")</option>
-    </select>
-    <label class="f" for="mod">Módulo</label>
-    <select id="mod"></select>
-    <label class="f" for="qtd">Quantidade de questões</label>
-    <select id="qtd"></select>
-    <p class="muted" id="info"></p>
-    <div class="row"><button class="b" id="go">Iniciar</button></div>
-  </section>
-
-  <section id="quiz" class="hide">
-    <div class="card">
-      <div style="display:flex;justify-content:space-between"><span class="muted" id="prog"></span><span class="muted" id="live"></span></div>
-      <div class="bar"><i id="barfill"></i></div>
-      <div id="tags" style="margin-top:8px"></div>
-      <div class="q" id="stem"></div>
-      <div id="opts" role="radiogroup" aria-label="Alternativas"></div>
-      <div id="hintbox" class="box hint hide" role="note"><b class="t">💡 Dica</b><span id="hinttxt"></span></div>
-      <div id="fb" class="box hide" aria-live="polite"></div>
-      <div class="row">
-        <button class="b sec" id="hint">💡 Dica</button>
-        <button class="b" id="check" disabled>Verificar resposta</button>
-        <button class="b" id="next" class="hide" style="display:none">Próxima →</button>
-      </div>
-    </div>
-  </section>
-
-  <section id="result" class="hide">
-    <div class="card">
-      <h2>Resultado</h2>
-      <div class="kpis" id="kpis"></div>
-      <h2 style="margin-top:16px">Desempenho por módulo</h2>
-      <table><thead><tr><th>Módulo</th><th>Acertos</th><th>Situação</th></tr></thead><tbody id="bymod"></tbody></table>
-      <h2 style="margin-top:16px">Para revisar</h2>
-      <div id="review"></div>
-      <div class="row"><button class="b" id="again">Refazer</button><button class="b sec" onclick="window.print()">Exportar PDF</button></div>
-    </div>
-  </section>
-</main>
-<footer>Material de estudo não oficial, elaborado a partir da apostila do curso. Não substitui a prova nem a legislação vigente. Meta de aprovação usada na tela de resultado: 70%.</footer>
+<header class="top"><div class="in">
+  <div id="logo" style="cursor:pointer"><h1>Simulado TTI · IBREP<small>Plano de 5 dias · Técnico em Transações Imobiliárias</small></h1></div>
+  <button class="chip-res" id="chip" aria-label="Ver resultados e sugestões">📊 —</button>
+</div></header>
+<main id="view" aria-live="polite"></main>
+<nav class="bottom" aria-label="Navegação">
+  <button data-go="hoje"><span class="ic">🏠</span>Hoje</button>
+  <button data-go="semana"><span class="ic">📅</span>Semana</button>
+  <button data-go="sumario"><span class="ic">📚</span>Sumário</button>
+  <button data-go="res"><span class="ic">📊</span>Resultados</button>
+</nav>
 
 <script>
 window.BANCO=[];
-/* Atalho de autoria: a 1ª alternativa de o[] é sempre a correta (a ordem é embaralhada na prova). n: 1 padrão, 2 desafio */
+/* Atalho de autoria: a 1ª alternativa de o[] é sempre a correta (a ordem é embaralhada na tela). n: 1 padrão, 2 desafio */
 window.Q=(id,m,d,n,q,o,h,e,f)=>BANCO.push({id,m,d,n,q,o,c:0,h,e,f});
 </script>
+<script src="banco/00_temas.js"></script>
 <script src="banco/00_piloto.js"></script>
 <script src="banco/01_mercado.js"></script>
 <script src="banco/02_tecnico_construcao.js"></script>
@@ -134,93 +50,10 @@ window.Q=(id,m,d,n,q,o,h,e,f)=>BANCO.push({id,m,d,n,q,o,c:0,h,e,f});
 <script src="banco/10b_avi_ptam_judicial.js"></script>
 <script src="banco/10c_avi_pratica.js"></script>
 <script src="banco/11_desafio_mercado.js"></script>
+<script src="banco/12_desafio_tecnico.js"></script>
 <script src="banco/13_desafio_pessoas.js"></script>
 <script src="banco/14_desafio_numeros.js"></script>
 <script src="banco/15_desafio_avi.js"></script>
-<script src="banco/12_desafio_tecnico.js"></script>
-<script>
-/* Banco em banco/*.js; n=1 padrão, n=2 desafio. c = índice (0..3) da alternativa correta; f = fonte na apostila TTI+ (nº da página do PDF). */
-/* O banco fica em banco/*.js; cada questão: n=1 (padrão) ou n=2 (desafio). */
-
-const $=id=>document.getElementById(id);
-const L=["A","B","C","D","E"];
-const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
-let S=null;
-
-const poolOf=()=>{const n=+$("niv").value,f=$("mod").value;return BANCO.filter(q=>(q.n||1)===n&&(f==="Todos os módulos"||q.m===f))};
-function refreshQtd(){
-  const tot=poolOf().length,opts=[];
-  [20,40,60].forEach(v=>{if(v<tot)opts.push([v,`${v} questões (sorteadas)`])});
-  opts.push([tot,`Todas (${tot})`]);
-  $("qtd").innerHTML=opts.map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
-  $("qtd").value=String(opts.length>1&&tot>40?40:tot);
-  $("info").textContent=tot?"":"Nenhuma questão disponível nesta combinação ainda.";
-  $("go").disabled=!tot;
-}
-function init(){
-  const ord=["Mercado","Técnico","Pessoas","Números","Estágio","Avaliação (AVI)"];
-  const mods=["Todos os módulos",...ord.filter(m=>BANCO.some(q=>q.m===m))];
-  const np=BANCO.filter(q=>(q.n||1)===1).length,nd=BANCO.length-np;
-  $("sub").textContent=`${np} questões padrão · ${nd} desafio`;
-  $("mod").innerHTML=mods.map(m=>`<option>${m}</option>`).join("");
-  $("niv").onchange=refreshQtd;$("mod").onchange=refreshQtd;refreshQtd();
-}
-function start(){
-  const pool=poolOf().slice();
-  S={qs:shuffle(pool).slice(0,+$("qtd").value).map(q=>{const ord=shuffle(q.o.map((_,i)=>i));return {...q,ord}}),i:0,ans:[],sel:null,done:false,hint:false};
-  $("start").classList.add("hide");$("result").classList.add("hide");$("quiz").classList.remove("hide");
-  render();
-}
-function render(){
-  const q=S.qs[S.i];S.sel=null;S.done=false;S.hint=false;
-  $("prog").textContent=`Questão ${S.i+1} de ${S.qs.length}`;
-  $("live").textContent=`Acertos: ${S.ans.filter(a=>a.ok).length}`;
-  $("barfill").style.width=(S.i/S.qs.length*100)+"%";
-  $("tags").innerHTML=`<span class="tag">${q.m}</span><span class="tag">${q.d}</span>`;
-  $("stem").textContent=q.q;
-  $("opts").innerHTML=q.ord.map((oi,k)=>`<button class="opt" data-k="${k}" role="radio" aria-checked="false"><span class="l">${L[k]}</span><span>${q.o[oi]}</span><span class="mk"></span></button>`).join("");
-  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>pick(+b.dataset.k));
-  $("hintbox").classList.add("hide");$("fb").classList.add("hide");
-  $("hint").disabled=false;$("check").disabled=true;$("check").style.display="";$("next").style.display="none";
-  $("next").textContent=S.i===S.qs.length-1?"Ver resultado →":"Próxima →";
-}
-function pick(k){
-  if(S.done)return;S.sel=k;
-  document.querySelectorAll(".opt").forEach(b=>{const s=+b.dataset.k===k;b.classList.toggle("sel",s);b.setAttribute("aria-checked",s)});
-  $("check").disabled=false;
-}
-function hint(){const q=S.qs[S.i];$("hinttxt").textContent=" "+q.h;$("hintbox").classList.remove("hide");S.hint=true}
-function check(){
-  const q=S.qs[S.i];if(S.sel===null)return;
-  S.done=true;const right=q.ord.indexOf(q.c);const ok=S.sel===right;
-  S.ans.push({id:q.id,m:q.m,d:q.d,q:q.q,ok,hint:S.hint,e:q.e,f:q.f,correct:q.o[q.c]});
-  document.querySelectorAll(".opt").forEach(b=>{
-    const k=+b.dataset.k;b.disabled=true;
-    if(k===right){b.classList.add("ok");b.querySelector(".mk").textContent="✓ Correta"}
-    else if(k===S.sel){b.classList.add("err");b.querySelector(".mk").textContent="✗ Sua resposta"}
-  });
-  const fb=$("fb");fb.className="box "+(ok?"ok":"err");
-  fb.innerHTML=`<b class="t">${ok?"✓ Correto!":"✗ Não foi dessa vez."}</b>${q.e}<div class="muted" style="margin-top:6px">📖 Revisar: ${q.f}</div>`;
-  $("hint").disabled=true;$("check").style.display="none";$("next").style.display="";
-  $("live").textContent=`Acertos: ${S.ans.filter(a=>a.ok).length}`;
-}
-function next(){if(S.i<S.qs.length-1){S.i++;render()}else finish()}
-function sem(p){return p>=70?['g','🟢 Acima da meta']:p>=50?['a','🟡 Próximo da meta']:['r','🔴 Abaixo da meta']}
-function finish(){
-  $("quiz").classList.add("hide");$("result").classList.remove("hide");
-  const t=S.ans.length,a=S.ans.filter(x=>x.ok).length,p=a/t*100,[c,txt]=sem(p),h=S.ans.filter(x=>x.hint).length;
-  $("kpis").innerHTML=`<div class="kpi"><div class="muted">Acertos</div><div class="n">${a}/${t}</div></div>
-   <div class="kpi"><div class="muted">Aproveitamento</div><div class="n">${p.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})}%</div><div class="sem ${c}">${txt} (70%)</div></div>
-   <div class="kpi"><div class="muted">Dicas usadas</div><div class="n">${h}</div></div>`;
-  const g={};S.ans.forEach(x=>{(g[x.m]=g[x.m]||{a:0,t:0});g[x.m].t++;if(x.ok)g[x.m].a++});
-  $("bymod").innerHTML=Object.entries(g).map(([m,v])=>{const [cc,tt]=sem(v.a/v.t*100);return `<tr><td>${m}</td><td style="font-family:var(--mono)">${v.a}/${v.t}</td><td class="sem ${cc}">${tt}</td></tr>`}).join("");
-  const w=S.ans.filter(x=>!x.ok);
-  $("review").innerHTML=w.length?w.map(x=>`<div class="box err"><b class="t">${x.d}</b>${x.q}<div style="margin-top:4px"><b>Resposta correta:</b> ${x.correct}</div><div class="muted">📖 ${x.f}</div></div>`).join(""):'<div class="box ok">✓ Você acertou tudo. Nada a revisar.</div>';
-  try{localStorage.setItem("tti_ultimo",JSON.stringify({d:new Date().toISOString(),a,t}))}catch(e){}
-}
-$("go").onclick=start;$("hint").onclick=hint;$("check").onclick=check;$("next").onclick=next;
-$("again").onclick=()=>{$("result").classList.add("hide");$("start").classList.remove("hide")};
-init();
-</script>
+<script src="app.js"></script>
 </body>
 </html>
