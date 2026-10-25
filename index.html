@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Simulado TTI – Piloto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1E2761; --teal:#1D9E75; --amber:#BA7517; --red:#C0392B;
+  --bg:#ffffff; --surface:#f8fafc; --border:#e2e8f0; --text:#0f172a; --muted:#64748b;
+  --ok-bg:#e8f6f1; --err-bg:#fbeceb; --hint-bg:#fdf3e2; --accent:#1E2761; --on-accent:#fff;
+  --radius:10px; --font:'DM Sans',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0b1020; --surface:#121a33; --border:#24304f; --text:#e2e8f0; --muted:#94a3b8;
+  --ok-bg:#0f2a24; --err-bg:#301a1a; --hint-bg:#2b2412; --accent:#6f82e8; --on-accent:#0b1020;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.55 var(--font)}
+main{max-width:760px;margin:0 auto;padding:16px}
+header.top{background:var(--navy);color:#fff;padding:14px 16px}
+header.top div{max-width:760px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+header.top h1{font-size:17px;margin:0}
+header.top span{font-size:12px;opacity:.85}
+.card{border:.5px solid var(--border);border-radius:var(--radius);padding:1rem;background:var(--surface);margin:12px 0}
+h2{font-size:16px;margin:0 0 8px}
+.muted{color:var(--muted);font-size:12.5px}
+.bar{height:6px;background:var(--border);border-radius:99px;overflow:hidden;margin:6px 0 2px}
+.bar i{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
+.tag{display:inline-block;font-size:11.5px;border:.5px solid var(--border);border-radius:99px;padding:1px 9px;margin:0 4px 6px 0;background:var(--bg);color:var(--muted)}
+.q{font-size:15.5px;font-weight:500;margin:6px 0 12px}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font:inherit;color:inherit;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;margin:8px 0;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt .l{font-family:var(--mono);min-width:22px;height:22px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;font-size:12px;flex:none}
+.opt.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.opt.sel .l{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.opt.ok{background:var(--ok-bg);border-color:var(--teal)}
+.opt.err{background:var(--err-bg);border-color:var(--red)}
+.opt:disabled{cursor:default}
+.opt .mk{margin-left:auto;font-weight:700;white-space:nowrap}
+.opt.ok .mk{color:var(--teal)} .opt.err .mk{color:var(--red)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+button.b{font:inherit;font-weight:500;border-radius:var(--radius);padding:9px 16px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:var(--on-accent)}
+button.b.sec{background:transparent;color:var(--accent)}
+button.b:disabled{opacity:.4;cursor:not-allowed}
+.box{border-radius:var(--radius);padding:10px 12px;margin-top:12px;border:.5px solid var(--border)}
+.box.hint{background:var(--hint-bg);border-color:var(--amber)}
+.box.ok{background:var(--ok-bg);border-color:var(--teal)}
+.box.err{background:var(--err-bg);border-color:var(--red)}
+.box b.t{display:block;margin-bottom:2px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.kpi{border:.5px solid var(--border);border-radius:var(--radius);padding:.8rem;background:var(--bg)}
+.kpi .n{font:500 24px var(--mono)}
+.sem{font-weight:700}
+.sem.g{color:var(--teal)} .sem.a{color:var(--amber)} .sem.r{color:var(--red)}
+table{width:100%;border-collapse:collapse;margin-top:6px}
+th,td{text-align:left;padding:6px 4px;border-bottom:.5px solid var(--border);font-size:13px}
+select{font:inherit;padding:7px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
+label.f{display:block;margin:10px 0 4px;font-weight:500}
+footer{max-width:760px;margin:0 auto;padding:8px 16px 28px;color:var(--muted);font-size:12px}
+.hide{display:none}
+@media print{header.top,.row,footer{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div><h1>Simulado TTI · Técnico em Transações Imobiliárias</h1><span>Piloto · 5 questões</span></div></header>
+<main>
+  <section id="start" class="card">
+    <h2>Simulado de preparação para a avaliação final</h2>
+    <p class="muted">Questões de múltipla escolha baseadas na apostila TTI+. Você pode pedir uma <b>dica</b> e <b>verificar</b> a resposta de cada questão; a explicação indica onde revisar na apostila.</p>
+    <label class="f" for="mod">Módulo</label>
+    <select id="mod"></select>
+    <div class="row"><button class="b" id="go">Iniciar</button></div>
+  </section>
+
+  <section id="quiz" class="hide">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between"><span class="muted" id="prog"></span><span class="muted" id="live"></span></div>
+      <div class="bar"><i id="barfill"></i></div>
+      <div id="tags" style="margin-top:8px"></div>
+      <div class="q" id="stem"></div>
+      <div id="opts" role="radiogroup" aria-label="Alternativas"></div>
+      <div id="hintbox" class="box hint hide" role="note"><b class="t">💡 Dica</b><span id="hinttxt"></span></div>
+      <div id="fb" class="box hide" aria-live="polite"></div>
+      <div class="row">
+        <button class="b sec" id="hint">💡 Dica</button>
+        <button class="b" id="check" disabled>Verificar resposta</button>
+        <button class="b" id="next" class="hide" style="display:none">Próxima →</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="result" class="hide">
+    <div class="card">
+      <h2>Resultado</h2>
+      <div class="kpis" id="kpis"></div>
+      <h2 style="margin-top:16px">Desempenho por módulo</h2>
+      <table><thead><tr><th>Módulo</th><th>Acertos</th><th>Situação</th></tr></thead><tbody id="bymod"></tbody></table>
+      <h2 style="margin-top:16px">Para revisar</h2>
+      <div id="review"></div>
+      <div class="row"><button class="b" id="again">Refazer</button><button class="b sec" onclick="window.print()">Exportar PDF</button></div>
+    </div>
+  </section>
+</main>
+<footer>Material de estudo não oficial, elaborado a partir da apostila do curso. Não substitui a prova nem a legislação vigente. Meta de aprovação usada na tela de resultado: 70%.</footer>
+
+<script>
+/* Banco de questões. c = índice (0..3) da alternativa correta; f = fonte na apostila TTI+ (nº da página do PDF). */
+const BANCO=[
+ {id:"MER-PRO-01",m:"Mercado",d:"Conhecendo a profissão",
+  q:"Segundo a apostila, qual é a diferença, na prática, entre o intermediador e o corretor de imóveis?",
+  o:["O intermediador acompanha todo o processo até a transferência do bem; o corretor apenas aproxima as partes.",
+     "O intermediador apenas liga as partes interessadas; o corretor acompanha o processo até o fim, inclusive certidões, contrato e transferência.",
+     "Perante a lei são figuras distintas, mas na prática são sinônimos.",
+     "O corretor atua apenas antes da venda, com estudo e análise de mercado."],
+  c:1,
+  h:"Perante a lei os termos são sinônimos; a diferença aparece na prática. Pense em quem 'acompanha até o final'.",
+  e:"O intermediador faz a ligação entre as partes e não acompanha o processo até o fim. O corretor realiza os processos da operação e acompanha até a conclusão (contrato, certidões, transferência do bem). A alternativa 4 descreve o consultor imobiliário, que atua mais no momento prévio à venda.",
+  f:"Módulo Mercado · Conhecendo a profissão, 1.2 (p. 5)"},
+ {id:"TEC-DIR-01",m:"Técnico",d:"Direito imobiliário",
+  q:"Sobre aval e fiança, está correto afirmar que:",
+  o:["O aval garante o negócio e a fiança garante títulos de crédito.",
+     "O aval garante títulos de crédito (cheque, nota promissória, duplicata) e a fiança garante o negócio; a compra e venda de imóvel não é título de crédito.",
+     "O aval e a fiança são sinônimos e valem para qualquer contrato.",
+     "A fiança serve para garantir cheque e duplicata, e o aval serve para garantir contratos de locação."],
+  c:1,
+  h:"Lembre dos exemplos de 'título de crédito'. Compra e venda de imóvel entra nessa lista?",
+  e:"Aval é para garantir título de crédito (cheque, nota promissória, duplicata). Fiança é para garantir o negócio, como a locação. Compra e venda de imóvel não é título de crédito. Observação da apostila: fiança também é um dos atos que exigem anuência do cônjuge.",
+  f:"Módulo Técnico · Direito imobiliário, 3.1 (p. 89)"},
+ {id:"TEC-DIR-02",m:"Técnico",d:"Direito imobiliário",
+  q:"O proprietário de um imóvel se divorciou e precisa que a matrícula reflita o novo estado civil. Qual ato deve ser feito na matrícula?",
+  o:["Registro, porque o divórcio transfere a propriedade para um terceiro.",
+     "Averbação, porque é uma alteração que precisa ser acrescentada ao registro existente.",
+     "Nenhum ato, pois o estado civil não interessa à matrícula.",
+     "Novo registro de compra e venda entre os ex-cônjuges."],
+  c:1,
+  h:"Um dos atos é a transferência de propriedade; o outro é uma alteração que se acrescenta ao que já existe.",
+  e:"Registro é a transferência de propriedade (ex.: compra e venda). Averbação são as alterações no registro que precisam ser adicionadas; o exemplo dado na apostila é justamente o divórcio. A matrícula guarda todo o histórico do imóvel, e cabe ao corretor pedi-la e verificar a situação legal.",
+  f:"Módulo Técnico · Direito imobiliário, 3.4 (p. 91)"},
+ {id:"NUM-MAT-01",m:"Números",d:"Matemática descomplicada",
+  q:"Um operário receberá um aumento de 5% e passará a ganhar R$ 2.100,00. Qual era o salário antes do aumento?",
+  o:["R$ 1.995,00","R$ 2.000,00","R$ 2.205,00","R$ 1.890,00"],
+  c:1,
+  h:"Os R$ 2.100,00 já incluem os 5%. O salário antigo é a referência de 100%; então 2.100 corresponde a 105%.",
+  e:"Salário antigo = 100%; com o aumento passa a 105%. Logo: 2.100 ÷ 1,05 = 2.000. O erro mais comum é tirar 5% de 2.100 (resultado 1.995), pois os 5% incidem sobre o salário antigo, não sobre o novo.",
+  f:"Módulo Números · Matemática descomplicada, 3.6 (p. 214)"},
+ {id:"PES-POS-01",m:"Pessoas",d:"Pós-venda gera venda",
+  q:"De acordo com a apostila, quando o pós-venda deve começar?",
+  o:["Somente depois que o cliente assina o contrato.",
+     "Somente se o cliente fizer alguma reclamação após a compra.",
+     "Já na jornada de compra, desde que o cliente começa a pensar em adquirir um imóvel, e ganha uma etapa efetiva depois da venda.",
+     "Apenas quando o cliente é indicado por outro cliente."],
+  c:2,
+  h:"A apostila diz que não é um 'fato isolado': ele faz parte da jornada de compra.",
+  e:"O pós-venda deve ser construído de forma humana e fazer parte da jornada de compra desde o início. Após a venda efetivada, o corretor não encerra o contato: é ali que o pós-venda começa efetivamente (soluções para o dia a dia, indicação de profissionais, orientação sobre transferência das contas). Isso aumenta as chances de indicações e recorrência.",
+  f:"Módulo Pessoas · Pós-venda gera venda, 5.1 (p. 183–184)"}
+];
+
+const $=id=>document.getElementById(id);
+const L=["A","B","C","D","E"];
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let S=null;
+
+function init(){
+  const mods=["Todos os módulos",...new Set(BANCO.map(q=>q.m))];
+  $("mod").innerHTML=mods.map(m=>`<option>${m}</option>`).join("");
+}
+function start(){
+  const f=$("mod").value;
+  const pool=BANCO.filter(q=>f==="Todos os módulos"||q.m===f);
+  S={qs:shuffle(pool).map(q=>{const ord=shuffle(q.o.map((_,i)=>i));return {...q,ord}}),i:0,ans:[],sel:null,done:false,hint:false};
+  $("start").classList.add("hide");$("result").classList.add("hide");$("quiz").classList.remove("hide");
+  render();
+}
+function render(){
+  const q=S.qs[S.i];S.sel=null;S.done=false;S.hint=false;
+  $("prog").textContent=`Questão ${S.i+1} de ${S.qs.length}`;
+  $("live").textContent=`Acertos: ${S.ans.filter(a=>a.ok).length}`;
+  $("barfill").style.width=(S.i/S.qs.length*100)+"%";
+  $("tags").innerHTML=`<span class="tag">${q.m}</span><span class="tag">${q.d}</span>`;
+  $("stem").textContent=q.q;
+  $("opts").innerHTML=q.ord.map((oi,k)=>`<button class="opt" data-k="${k}" role="radio" aria-checked="false"><span class="l">${L[k]}</span><span>${q.o[oi]}</span><span class="mk"></span></button>`).join("");
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>pick(+b.dataset.k));
+  $("hintbox").classList.add("hide");$("fb").classList.add("hide");
+  $("hint").disabled=false;$("check").disabled=true;$("check").style.display="";$("next").style.display="none";
+  $("next").textContent=S.i===S.qs.length-1?"Ver resultado →":"Próxima →";
+}
+function pick(k){
+  if(S.done)return;S.sel=k;
+  document.querySelectorAll(".opt").forEach(b=>{const s=+b.dataset.k===k;b.classList.toggle("sel",s);b.setAttribute("aria-checked",s)});
+  $("check").disabled=false;
+}
+function hint(){const q=S.qs[S.i];$("hinttxt").textContent=" "+q.h;$("hintbox").classList.remove("hide");S.hint=true}
+function check(){
+  const q=S.qs[S.i];if(S.sel===null)return;
+  S.done=true;const right=q.ord.indexOf(q.c);const ok=S.sel===right;
+  S.ans.push({id:q.id,m:q.m,d:q.d,q:q.q,ok,hint:S.hint,e:q.e,f:q.f,correct:q.o[q.c]});
+  document.querySelectorAll(".opt").forEach(b=>{
+    const k=+b.dataset.k;b.disabled=true;
+    if(k===right){b.classList.add("ok");b.querySelector(".mk").textContent="✓ Correta"}
+    else if(k===S.sel){b.classList.add("err");b.querySelector(".mk").textContent="✗ Sua resposta"}
+  });
+  const fb=$("fb");fb.className="box "+(ok?"ok":"err");
+  fb.innerHTML=`<b class="t">${ok?"✓ Correto!":"✗ Não foi dessa vez."}</b>${q.e}<div class="muted" style="margin-top:6px">📖 Revisar: ${q.f}</div>`;
+  $("hint").disabled=true;$("check").style.display="none";$("next").style.display="";
+  $("live").textContent=`Acertos: ${S.ans.filter(a=>a.ok).length}`;
+}
+function next(){if(S.i<S.qs.length-1){S.i++;render()}else finish()}
+function sem(p){return p>=70?['g','🟢 Acima da meta']:p>=50?['a','🟡 Próximo da meta']:['r','🔴 Abaixo da meta']}
+function finish(){
+  $("quiz").classList.add("hide");$("result").classList.remove("hide");
+  const t=S.ans.length,a=S.ans.filter(x=>x.ok).length,p=a/t*100,[c,txt]=sem(p),h=S.ans.filter(x=>x.hint).length;
+  $("kpis").innerHTML=`<div class="kpi"><div class="muted">Acertos</div><div class="n">${a}/${t}</div></div>
+   <div class="kpi"><div class="muted">Aproveitamento</div><div class="n">${p.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})}%</div><div class="sem ${c}">${txt} (70%)</div></div>
+   <div class="kpi"><div class="muted">Dicas usadas</div><div class="n">${h}</div></div>`;
+  const g={};S.ans.forEach(x=>{(g[x.m]=g[x.m]||{a:0,t:0});g[x.m].t++;if(x.ok)g[x.m].a++});
+  $("bymod").innerHTML=Object.entries(g).map(([m,v])=>{const [cc,tt]=sem(v.a/v.t*100);return `<tr><td>${m}</td><td style="font-family:var(--mono)">${v.a}/${v.t}</td><td class="sem ${cc}">${tt}</td></tr>`}).join("");
+  const w=S.ans.filter(x=>!x.ok);
+  $("review").innerHTML=w.length?w.map(x=>`<div class="box err"><b class="t">${x.d}</b>${x.q}<div style="margin-top:4px"><b>Resposta correta:</b> ${x.correct}</div><div class="muted">📖 ${x.f}</div></div>`).join(""):'<div class="box ok">✓ Você acertou tudo. Nada a revisar.</div>';
+  try{localStorage.setItem("tti_ultimo",JSON.stringify({d:new Date().toISOString(),a,t}))}catch(e){}
+}
+$("go").onclick=start;$("hint").onclick=hint;$("check").onclick=check;$("next").onclick=next;
+$("again").onclick=()=>{$("result").classList.add("hide");$("start").classList.remove("hide")};
+init();
+</script>
+</body>
+</html>
